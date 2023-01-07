@@ -13,7 +13,7 @@ const defaultstate = {
 export const creatorsReducer = (state = defaultstate, action) => {
   switch (action.type) {
     case ADD_CREATOR:
-      let newcreator = [...state];
+      let newcreator = [...state] ;
       newcreator.push(action.payload);
       return newcreator;
     case DELETE_CREATOR:
