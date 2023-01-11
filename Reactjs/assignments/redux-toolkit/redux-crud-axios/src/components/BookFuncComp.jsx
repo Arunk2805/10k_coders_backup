@@ -1,7 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addBookAction, deleteBookAction, updateBookAction } from "../store/slice/bookSlice";
+import { addBookAction, addDataToServer, deleteBookAction, deleteDataInServer, getDataFromServer, updateBookAction, updateDataInServer } from "../store/slice/bookSlice";
 
 const BookFuncComp = () => {
   const [book, setBook] = useState({
@@ -28,23 +29,29 @@ const BookFuncComp = () => {
   }
 
   const book1 = useSelector((state) => state.books);
-  console.log(book1);
+  // console.log(book1);
   const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(getDataFromServer())
+  },[])
 
   const handleEdit = (book) => {
     setIsEdit(true)
     setBook(book)
   };
   const handleDelete = (book) => {
-    dispatch(deleteBookAction(book))
+    // dispatch(deleteBookAction(book))
+    dispatch(deleteDataInServer(book))
   };
   const handleSubmit = () => {
-    dispatch(addBookAction(book));
+    // dispatch(addBookAction(book));
+    dispatch(addDataToServer(book))
     clearForm()
   };
 
   const handleUpdate = ()=>{
-  dispatch(updateBookAction(book))
+  // dispatch(updateBookAction(book))
+  dispatch(updateDataInServer(book))
   setIsEdit(false)
   clearForm()
   }
@@ -64,10 +71,11 @@ const BookFuncComp = () => {
                 value={book.id}
                 className="form-control"
                 id="exampleInputEmail1"
-                disabled={isEdit}
+                disabled
                 onChange={(e) => {
                   handleChange(e);
                 }}
+                
               />
             </div>
             <div className="mb-3">

@@ -1,0 +1,34 @@
+{
+  "book": [
+    {
+      "id": 1,
+      "bookName": "Electrical circuits",
+      "author": "PS bimrah"
+    },
+    {
+      "id": 2,
+      "bookName": "power system",
+      "author": "nageshwar rao"
+    },
+    {
+      "id": 3,
+      "bookName": "Power Electronics",
+      "author": "ramesh kumar"
+    },
+    {
+      "id": 4,
+      "bookName": "measurements",
+      "author": "rajesh"
+    },
+    {
+      "id": 5,
+      "bookName": "machine labs",
+      "author": "murali "
+    },
+    {
+      "id": 6,
+      "bookName": "measurements",
+      "author": "rajesh"
+    }
+  ]
+}
