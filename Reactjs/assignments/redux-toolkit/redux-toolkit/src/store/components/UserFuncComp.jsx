@@ -9,11 +9,12 @@ const UserFuncComp = () => {
 
   const users = useSelector((state) => state.users);
   // console.log(users)
+  const dispatch = useDispatch();
+  
   const clearForm = () => {
     setUser({ id: "", fname: "", lname: "", email: "" });
   };
 
-  const dispatch = useDispatch();
   const handleChange = (e) => {
     let newUsers = { ...user };
     newUsers[e.target.name] = e.target.value;
